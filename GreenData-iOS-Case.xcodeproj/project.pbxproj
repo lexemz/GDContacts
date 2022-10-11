@@ -58,16 +58,72 @@
 		F9E4D42E28F5876F00FCAB85 /* GreenData-iOS-Case */ = {
 			isa = PBXGroup;
 			children = (
-				F9E4D42F28F5876F00FCAB85 /* AppDelegate.swift */,
-				F9E4D43128F5876F00FCAB85 /* SceneDelegate.swift */,
-				F9E4D43328F5876F00FCAB85 /* ViewController.swift */,
-				F9E4D43528F5876F00FCAB85 /* Main.storyboard */,
-				F9E4D43B28F5877000FCAB85 /* Assets.xcassets */,
-				F9E4D43D28F5877000FCAB85 /* LaunchScreen.storyboard */,
-				F9E4D44028F5877000FCAB85 /* Info.plist */,
-				F9E4D43828F5876F00FCAB85 /* GreenData_iOS_Case.xcdatamodeld */,
+				F9E4D44728F58BBA00FCAB85 /* ViewControllers */,
+				F9E4D44B28F58BE000FCAB85 /* Managers */,
+				F9E4D44A28F58BD900FCAB85 /* Models */,
+				F9E4D44828F58BC800FCAB85 /* Storyboards */,
+				F9E4D44628F58BB200FCAB85 /* Application */,
+				F9E4D44928F58BD000FCAB85 /* Sources */,
+				F9E4D44C28F58F0200FCAB85 /* CoreData */,
 			);
 			path = "GreenData-iOS-Case";
+			sourceTree = "<group>";
+		};
+		F9E4D44628F58BB200FCAB85 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F9E4D42F28F5876F00FCAB85 /* AppDelegate.swift */,
+				F9E4D43128F5876F00FCAB85 /* SceneDelegate.swift */,
+				F9E4D44028F5877000FCAB85 /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F9E4D44728F58BBA00FCAB85 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F9E4D43328F5876F00FCAB85 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F9E4D44828F58BC800FCAB85 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F9E4D43528F5876F00FCAB85 /* Main.storyboard */,
+				F9E4D43D28F5877000FCAB85 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		F9E4D44928F58BD000FCAB85 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F9E4D43B28F5877000FCAB85 /* Assets.xcassets */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		F9E4D44A28F58BD900FCAB85 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F9E4D44B28F58BE000FCAB85 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		F9E4D44C28F58F0200FCAB85 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F9E4D43828F5876F00FCAB85 /* GreenData_iOS_Case.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,12 +349,15 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K5L7239SK4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "GreenData-iOS-Case/Info.plist";
+				INFOPLIST_FILE = "GreenData-iOS-Case/Application/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "GreenData Friends";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,9 +365,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "lexemz.GreenData-iOS-Case";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -321,12 +383,15 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K5L7239SK4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "GreenData-iOS-Case/Info.plist";
+				INFOPLIST_FILE = "GreenData-iOS-Case/Application/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "GreenData Friends";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -334,9 +399,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "lexemz.GreenData-iOS-Case";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
