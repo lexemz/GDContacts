@@ -16,14 +16,22 @@ final class ContactsManager {
   var delegate: ContactsManagerDelegate?
 
   private let networkManager = NetworkManager.shared
-  private var requestPage = 0
+  private var requestPage = 1
 
   func startFetchContacts() {
-    networkManager.fetchContacts { [weak self] result in
+    networkManager.fetchContacts(
+      parameters: [
+        "page": "\(requestPage)",
+        "results": "10",
+        "seed": "lexemz.seed"
+      ]
+    ) { [weak self] result in
       guard let self = self else { return }
       switch result {
       case .success(let contacts):
         self.delegate?.handle(self, receivedContacts: contacts)
+        Log.d("Получены контакты: page = \(self.requestPage)")
+        self.requestPage += 1
       case .failure(let error):
         self.delegate?.handle(self, receivedError: error)
       }
