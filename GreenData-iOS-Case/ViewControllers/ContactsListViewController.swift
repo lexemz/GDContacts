@@ -10,10 +10,13 @@ import UIKit
 class ContactsListViewController: UITableViewController {
   // MARK: - Private props
   private let contactsManager = ContactsManager()
+  
+  private var contacts: [ContactRepresentable] = []
 
   override func viewDidLoad() {
     super.viewDidLoad()
     contactsManager.delegate = self
+    configureTableView()
   }
 
   // MARK: - IBActions
@@ -26,6 +29,14 @@ class ContactsListViewController: UITableViewController {
   }
   
   // MARK: - Flow methods
+  
+  private func configureTableView() {
+    tableView.register(
+      ContactViewCell.self,
+      forCellReuseIdentifier: ContactViewCell.reuseIdentifier
+    )
+    tableView.rowHeight = 85
+  }
   private func openContantViewController() {
     let contactVC = ContactDetailViewController.instanceFromStoryboard()
     navigationController?.pushViewController(contactVC, animated: true)
@@ -36,24 +47,42 @@ class ContactsListViewController: UITableViewController {
   }
   
   // MARK: - TableViewDataSource
-//  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//    <#code#>
-//  }
-//
-//  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//    <#code#>
-//  }
+  override func tableView(
+    _ tableView: UITableView,
+    numberOfRowsInSection section: Int
+  ) -> Int {
+    contacts.count
+  }
+
+  override func tableView(
+    _ tableView: UITableView,
+    cellForRowAt indexPath: IndexPath
+  ) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: ContactViewCell.reuseIdentifier) as! ContactViewCell
+    cell.configure(with: contacts[indexPath.row])
+    return cell
+  }
 }
 
 // MARK: - ContactsManagerDelegate
 
 extension ContactsListViewController: ContactsManagerDelegate {
-  func handle(_ from: ContactsManager, receivedContacts: [ContactRepresentable]) {
+  func handle(
+    _ from: ContactsManager,
+    receivedContacts: [ContactRepresentable]
+  ) {
     // TODO: Handle Contacts
     Log.d(receivedContacts)
+    DispatchQueue.main.async {
+      self.contacts += receivedContacts
+      self.tableView.reloadData()
+    }
   }
 
-  func handle(_ from: ContactsManager, receivedError: NetworkManagerError) {
+  func handle(
+    _ from: ContactsManager,
+    receivedError: NetworkManagerError
+  ) {
     // TODO: Show Alert
     Log.d(receivedError)
   }
