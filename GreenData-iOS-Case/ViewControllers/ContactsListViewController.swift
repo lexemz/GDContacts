@@ -50,11 +50,11 @@ class ContactsListViewController: UITableViewController {
 extension ContactsListViewController: ContactsManagerDelegate {
   func handle(_ from: ContactsManager, receivedContacts: [ContactRepresentable]) {
     // TODO: Handle Contacts
-    print(receivedContacts)
+    Log.d(receivedContacts)
   }
 
   func handle(_ from: ContactsManager, receivedError: NetworkManagerError) {
     // TODO: Show Alert
-   print(receivedError)
+    Log.d(receivedError)
   }
 }

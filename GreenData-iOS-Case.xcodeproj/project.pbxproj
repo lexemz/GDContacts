@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F9D090E128F5C27F00051BEE /* ContactRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D090E028F5C27F00051BEE /* ContactRepresentable.swift */; };
 		F9D090E328F5CD6D00051BEE /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D090E228F5CD6D00051BEE /* ContactsManager.swift */; };
+		F9D090E628F5E5AC00051BEE /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D090E528F5E5AC00051BEE /* Log.swift */; };
 		F9E4D43028F5876F00FCAB85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4D42F28F5876F00FCAB85 /* AppDelegate.swift */; };
 		F9E4D43228F5876F00FCAB85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4D43128F5876F00FCAB85 /* SceneDelegate.swift */; };
 		F9E4D43428F5876F00FCAB85 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4D43328F5876F00FCAB85 /* ContactsListViewController.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		F9D090E028F5C27F00051BEE /* ContactRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRepresentable.swift; sourceTree = "<group>"; };
 		F9D090E228F5CD6D00051BEE /* ContactsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
+		F9D090E528F5E5AC00051BEE /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		F9E4D42C28F5876F00FCAB85 /* GreenData-iOS-Case.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GreenData-iOS-Case.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E4D42F28F5876F00FCAB85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9E4D43128F5876F00FCAB85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F9D090E428F5E59D00051BEE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F9D090E528F5E5AC00051BEE /* Log.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		F9E4D42328F5876F00FCAB85 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +87,7 @@
 				F9E4D45828F5A2E900FCAB85 /* Protocols */,
 				F9E4D44A28F58BD900FCAB85 /* Models */,
 				F9E4D44F28F591E800FCAB85 /* Extensions */,
+				F9D090E428F5E59D00051BEE /* Utils */,
 				F9E4D44828F58BC800FCAB85 /* Storyboards */,
 				F9E4D44628F58BB200FCAB85 /* Application */,
 				F9E4D44928F58BD000FCAB85 /* Sources */,
@@ -236,6 +247,7 @@
 			files = (
 				F9E4D43428F5876F00FCAB85 /* ContactsListViewController.swift in Sources */,
 				F9E4D43028F5876F00FCAB85 /* AppDelegate.swift in Sources */,
+				F9D090E628F5E5AC00051BEE /* Log.swift in Sources */,
 				F9E4D43228F5876F00FCAB85 /* SceneDelegate.swift in Sources */,
 				F9D090E128F5C27F00051BEE /* ContactRepresentable.swift in Sources */,
 				F9E4D45728F59FD400FCAB85 /* ContactJSON.swift in Sources */,
