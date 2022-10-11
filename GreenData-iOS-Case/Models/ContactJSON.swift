@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct ResultsJSON: Decodable {
+struct RandomUserJSON: Decodable {
   let results: [ContactJSON]
+  let info: Info
 }
 
 struct ContactJSON: Decodable {
@@ -43,6 +44,10 @@ struct Location: Decodable {
 struct Timezone: Decodable {
   let offset: String
   let description: String
+}
+
+struct Info: Decodable {
+  let page: Int
 }
 
 extension ContactJSON: ContactRepresentable {

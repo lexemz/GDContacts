@@ -63,7 +63,7 @@ class NetworkManager {
       }
 
       do {
-        let decodeResult = try JSONDecoder().decode(ResultsJSON.self, from: data)
+        let decodeResult = try JSONDecoder().decode(RandomUserJSON.self, from: data)
         let contacts = decodeResult.results.map { $0 }
         
         completion(.success(contacts))
