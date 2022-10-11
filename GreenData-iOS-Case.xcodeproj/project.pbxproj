@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F9D090E128F5C27F00051BEE /* ContactRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D090E028F5C27F00051BEE /* ContactRepresentable.swift */; };
+		F9D090E328F5CD6D00051BEE /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D090E228F5CD6D00051BEE /* ContactsManager.swift */; };
 		F9E4D43028F5876F00FCAB85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4D42F28F5876F00FCAB85 /* AppDelegate.swift */; };
 		F9E4D43228F5876F00FCAB85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4D43128F5876F00FCAB85 /* SceneDelegate.swift */; };
 		F9E4D43428F5876F00FCAB85 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4D43328F5876F00FCAB85 /* ContactsListViewController.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		F9D090E028F5C27F00051BEE /* ContactRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRepresentable.swift; sourceTree = "<group>"; };
+		F9D090E228F5CD6D00051BEE /* ContactsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
 		F9E4D42C28F5876F00FCAB85 /* GreenData-iOS-Case.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GreenData-iOS-Case.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E4D42F28F5876F00FCAB85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9E4D43128F5876F00FCAB85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			children = (
 				F9E4D44D28F590A100FCAB85 /* CoreDataManager.swift */,
 				F9E4D45428F59E7200FCAB85 /* NetworkManager.swift */,
+				F9D090E228F5CD6D00051BEE /* ContactsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				F9E4D45528F59E7200FCAB85 /* NetworkManager.swift in Sources */,
 				F9E4D44E28F590A100FCAB85 /* CoreDataManager.swift in Sources */,
 				F9E4D43A28F5876F00FCAB85 /* GreenData_iOS_Case.xcdatamodeld in Sources */,
+				F9D090E328F5CD6D00051BEE /* ContactsManager.swift in Sources */,
 				F9E4D45128F599C700FCAB85 /* ContactDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
