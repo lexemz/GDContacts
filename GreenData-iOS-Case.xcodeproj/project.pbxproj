@@ -10,6 +10,8 @@
 		F9D090E128F5C27F00051BEE /* ContactRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D090E028F5C27F00051BEE /* ContactRepresentable.swift */; };
 		F9D090E328F5CD6D00051BEE /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D090E228F5CD6D00051BEE /* ContactsManager.swift */; };
 		F9D090E628F5E5AC00051BEE /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D090E528F5E5AC00051BEE /* Log.swift */; };
+		F9D090E928F6050400051BEE /* ContactViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D090E828F6050400051BEE /* ContactViewCell.swift */; };
+		F9D090EB28F6090000051BEE /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D090EA28F6090000051BEE /* UITableViewCell+Extensions.swift */; };
 		F9E4D43028F5876F00FCAB85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4D42F28F5876F00FCAB85 /* AppDelegate.swift */; };
 		F9E4D43228F5876F00FCAB85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4D43128F5876F00FCAB85 /* SceneDelegate.swift */; };
 		F9E4D43428F5876F00FCAB85 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4D43328F5876F00FCAB85 /* ContactsListViewController.swift */; };
@@ -28,6 +30,8 @@
 		F9D090E028F5C27F00051BEE /* ContactRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRepresentable.swift; sourceTree = "<group>"; };
 		F9D090E228F5CD6D00051BEE /* ContactsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
 		F9D090E528F5E5AC00051BEE /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		F9D090E828F6050400051BEE /* ContactViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewCell.swift; sourceTree = "<group>"; };
+		F9D090EA28F6090000051BEE /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
 		F9E4D42C28F5876F00FCAB85 /* GreenData-iOS-Case.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GreenData-iOS-Case.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E4D42F28F5876F00FCAB85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9E4D43128F5876F00FCAB85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +70,7 @@
 		F9D090E728F6029100051BEE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F9D090E828F6050400051BEE /* ContactViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				F9E4D45228F59A6800FCAB85 /* UIViewController+Extensions.swift */,
+				F9D090EA28F6090000051BEE /* UITableViewCell+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -257,6 +263,7 @@
 				F9E4D43028F5876F00FCAB85 /* AppDelegate.swift in Sources */,
 				F9D090E628F5E5AC00051BEE /* Log.swift in Sources */,
 				F9E4D43228F5876F00FCAB85 /* SceneDelegate.swift in Sources */,
+				F9D090EB28F6090000051BEE /* UITableViewCell+Extensions.swift in Sources */,
 				F9D090E128F5C27F00051BEE /* ContactRepresentable.swift in Sources */,
 				F9E4D45728F59FD400FCAB85 /* ContactJSON.swift in Sources */,
 				F9E4D45328F59A6800FCAB85 /* UIViewController+Extensions.swift in Sources */,
@@ -265,6 +272,7 @@
 				F9E4D43A28F5876F00FCAB85 /* GreenData_iOS_Case.xcdatamodeld in Sources */,
 				F9D090E328F5CD6D00051BEE /* ContactsManager.swift in Sources */,
 				F9E4D45128F599C700FCAB85 /* ContactDetailViewController.swift in Sources */,
+				F9D090E928F6050400051BEE /* ContactViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
