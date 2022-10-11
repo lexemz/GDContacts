@@ -70,6 +70,7 @@
 			children = (
 				F9E4D44728F58BBA00FCAB85 /* ViewControllers */,
 				F9E4D44B28F58BE000FCAB85 /* Managers */,
+				F9E4D45828F5A2E900FCAB85 /* Protocols */,
 				F9E4D44A28F58BD900FCAB85 /* Models */,
 				F9E4D44F28F591E800FCAB85 /* Extensions */,
 				F9E4D44828F58BC800FCAB85 /* Storyboards */,
@@ -147,6 +148,13 @@
 				F9E4D45228F59A6800FCAB85 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F9E4D45828F5A2E900FCAB85 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
