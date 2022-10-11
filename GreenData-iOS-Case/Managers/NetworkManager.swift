@@ -34,9 +34,10 @@ class NetworkManager {
   
   private init() {}
   
-  func fetchContacts(
-    parameters: [String: String] = [:],
-    completion: @escaping (Result<[ContactJSON], NetworkManagerError>) -> Void
+  func fetch<T: Decodable>(
+    _ type: T.Type,
+    with parameters: [String: String] = [:],
+    completion: @escaping (Result<T, NetworkManagerError>) -> Void
   ) {
     guard var urlWithComponents = URLComponents(string: urlAPI) else {
       completion(.failure(.invalidURL))
@@ -63,10 +64,8 @@ class NetworkManager {
       }
 
       do {
-        let decodeResult = try JSONDecoder().decode(RandomUserJSON.self, from: data)
-        let contacts = decodeResult.results.map { $0 }
-        
-        completion(.success(contacts))
+        let decodeResult = try JSONDecoder().decode(T.self, from: data)
+        completion(.success(decodeResult))
       } catch {
         completion(.failure(.decodeError(error)))
       }
