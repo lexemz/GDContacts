@@ -27,26 +27,22 @@ enum NetworkManagerError: Error, LocalizedError {
   }
 }
 
-typealias NetworkResult = Result<[ContactJSON], NetworkManagerError>
-
 class NetworkManager {
   static let shared = NetworkManager()
   
   private let urlAPI = "https://randomuser.me/api/?results=100"
-  private let urlParameters: [URLQueryItem] = [
-    URLQueryItem(name: "page", value: "1"),
-    URLQueryItem(name: "results", value: "10"),
-    URLQueryItem(name: "seed", value: "lexemz.seed")
-  ]
   
   private init() {}
   
-  func fetchContacts(completion: @escaping (NetworkResult) -> Void) {
+  func fetchContacts(
+    parameters: [String: String] = [:],
+    completion: @escaping (Result<[ContactJSON], NetworkManagerError>) -> Void
+  ) {
     guard var urlWithComponents = URLComponents(string: urlAPI) else {
       completion(.failure(.invalidURL))
       return
     }
-    urlWithComponents.queryItems = urlParameters
+    urlWithComponents.queryItems = parameters.map { URLQueryItem(name: $0.key, value: $0.value) }
       
     guard let url = urlWithComponents.url else {
       completion(.failure(.invalidURL))
