@@ -14,6 +14,7 @@
 		F9E4D43A28F5876F00FCAB85 /* GreenData_iOS_Case.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9E4D43828F5876F00FCAB85 /* GreenData_iOS_Case.xcdatamodeld */; };
 		F9E4D43C28F5877000FCAB85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9E4D43B28F5877000FCAB85 /* Assets.xcassets */; };
 		F9E4D43F28F5877000FCAB85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9E4D43D28F5877000FCAB85 /* LaunchScreen.storyboard */; };
+		F9E4D44E28F590A100FCAB85 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4D44D28F590A100FCAB85 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		F9E4D43B28F5877000FCAB85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9E4D43E28F5877000FCAB85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9E4D44028F5877000FCAB85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9E4D44D28F590A100FCAB85 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 		F9E4D44B28F58BE000FCAB85 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				F9E4D44D28F590A100FCAB85 /* CoreDataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				F9E4D43428F5876F00FCAB85 /* ViewController.swift in Sources */,
 				F9E4D43028F5876F00FCAB85 /* AppDelegate.swift in Sources */,
 				F9E4D43228F5876F00FCAB85 /* SceneDelegate.swift in Sources */,
+				F9E4D44E28F590A100FCAB85 /* CoreDataManager.swift in Sources */,
 				F9E4D43A28F5876F00FCAB85 /* GreenData_iOS_Case.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
