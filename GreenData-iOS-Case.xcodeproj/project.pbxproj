@@ -63,6 +63,7 @@
 				F9E4D44728F58BBA00FCAB85 /* ViewControllers */,
 				F9E4D44B28F58BE000FCAB85 /* Managers */,
 				F9E4D44A28F58BD900FCAB85 /* Models */,
+				F9E4D44F28F591E800FCAB85 /* Extensions */,
 				F9E4D44828F58BC800FCAB85 /* Storyboards */,
 				F9E4D44628F58BB200FCAB85 /* Application */,
 				F9E4D44928F58BD000FCAB85 /* Sources */,
@@ -127,6 +128,13 @@
 				F9E4D43828F5876F00FCAB85 /* GreenData_iOS_Case.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		F9E4D44F28F591E800FCAB85 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
