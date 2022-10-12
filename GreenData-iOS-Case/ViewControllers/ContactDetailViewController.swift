@@ -8,7 +8,11 @@
 import UIKit
 
 class ContactDetailViewController: UIViewController {
+  
+  var contact: ContactRepresentable!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    title = contact.fullname
   }
 }

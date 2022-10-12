@@ -63,11 +63,6 @@
                                 <action selector="fetchContactsTap:" destination="MrR-ec-dk8" id="NTW-2G-wIa"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Open Detail" id="bs9-0M-aOM">
-                            <connections>
-                                <action selector="openDetailTap:" destination="MrR-ec-dk8" id="Dcd-0f-fac"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Nk-zJ-I4p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

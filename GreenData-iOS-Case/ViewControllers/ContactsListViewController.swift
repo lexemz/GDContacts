@@ -17,12 +17,10 @@ class ContactsListViewController: UITableViewController {
     super.viewDidLoad()
     contactsManager.delegate = self
     configureTableView()
+    contactsManager.startFetchContacts()
   }
 
   // MARK: - IBActions
-  @IBAction func openDetailTap(_ sender: UIBarButtonItem) {
-    openContantViewController()
-  }
   
   @IBAction func fetchContactsTap(_ sender: UIBarButtonItem) {
     fetchContactsFromManager()
@@ -37,8 +35,10 @@ class ContactsListViewController: UITableViewController {
     )
     tableView.rowHeight = 85
   }
-  private func openContantViewController() {
+
+  private func openContantViewController(with contact: ContactRepresentable) {
     let contactVC = ContactDetailViewController.instanceFromStoryboard()
+    contactVC.contact = contact
     navigationController?.pushViewController(contactVC, animated: true)
   }
   
@@ -61,6 +61,16 @@ class ContactsListViewController: UITableViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: ContactViewCell.reuseIdentifier) as! ContactViewCell
     cell.configure(with: contacts[indexPath.row])
     return cell
+  }
+  
+  // MARK: - TableViewDataSource
+  
+  override func tableView(
+    _ tableView: UITableView,
+    didSelectRowAt indexPath: IndexPath
+  ) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    openContantViewController(with: contacts[indexPath.row])
   }
 }
 
