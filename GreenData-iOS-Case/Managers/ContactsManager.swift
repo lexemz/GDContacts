@@ -8,8 +8,14 @@
 import Foundation
 
 protocol ContactsManagerDelegate: AnyObject {
-  func handle(_ from: ContactsManager, receivedContacts: [ContactRepresentable])
-  func handle(_ from: ContactsManager, receivedError: NetworkManagerError)
+  func contactsManager(
+    _ contactsManager: ContactsManager,
+    didReceive contacts: [ContactRepresentable]
+  )
+  func contactsManager(
+    _ contactsManager: ContactsManager,
+    didReceive error: NetworkManagerError
+  )
 }
 
 final class ContactsManager {
@@ -18,7 +24,7 @@ final class ContactsManager {
   private let networkManager = NetworkManager.shared
   private var requestPage = 1
 
-  func startFetchContacts() {
+  func fetchContacts() {
     networkManager.fetch(
       RandomUserJSON.self,
       with: [
@@ -32,7 +38,7 @@ final class ContactsManager {
       case .success(let randomUserJSON):
         self.handleSuccessRequest(with: randomUserJSON)
       case .failure(let error):
-        self.delegate?.handle(self, receivedError: error)
+        self.delegate?.contactsManager(self, didReceive: error)
       }
     }
   }
@@ -40,7 +46,7 @@ final class ContactsManager {
   private func handleSuccessRequest(with randomUserJson: RandomUserJSON) {
     Log.d("Получены контакты: page = \(randomUserJson.info.page)")
     let contacts = randomUserJson.results.map { $0 }
-    delegate?.handle(self, receivedContacts: contacts)
+    delegate?.contactsManager(self, didReceive: contacts)
     self.requestPage += 1
   }
 }

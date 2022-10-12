@@ -19,7 +19,7 @@ class ContactsListViewController: UITableViewController {
     super.viewDidLoad()
     contactsManager.delegate = self
     configureTableView()
-    contactsManager.startFetchContacts()
+    contactsManager.fetchContacts()
   }
   
   // MARK: - Flow methods
@@ -39,7 +39,7 @@ class ContactsListViewController: UITableViewController {
   }
   
   private func fetchContactsFromManager() {
-    contactsManager.startFetchContacts()
+    contactsManager.fetchContacts()
   }
   
   // MARK: - TableViewDataSource
@@ -54,7 +54,10 @@ class ContactsListViewController: UITableViewController {
     _ tableView: UITableView,
     cellForRowAt indexPath: IndexPath
   ) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: ContactViewCell.reuseIdentifier) as! ContactViewCell
+    let cell = tableView.dequeueReusableCell(
+      withIdentifier: ContactViewCell.reuseIdentifier
+    ) as! ContactViewCell
+    
     cell.configure(with: contacts[indexPath.row])
     
     if indexPath.row == contacts.count - 3 {
@@ -76,30 +79,29 @@ class ContactsListViewController: UITableViewController {
   // MARK: - Flow methods
   
   private func loadMoreContacts() {
-    contactsManager.startFetchContacts()
+    contactsManager.fetchContacts()
   }
 }
 
 // MARK: - ContactsManagerDelegate
 
 extension ContactsListViewController: ContactsManagerDelegate {
-  func handle(
-    _ from: ContactsManager,
-    receivedContacts: [ContactRepresentable]
+  func contactsManager(
+    _ contactsManager: ContactsManager,
+    didReceive contacts: [ContactRepresentable]
   ) {
-    // TODO: Handle Contacts
-    Log.d(receivedContacts)
+    Log.d(contacts)
     DispatchQueue.main.async {
-      self.contacts += receivedContacts
+      self.contacts += contacts
       self.tableView.reloadData()
     }
   }
-
-  func handle(
-    _ from: ContactsManager,
-    receivedError: NetworkManagerError
+  
+  func contactsManager(
+    _ contactsManager: ContactsManager,
+    didReceive error: NetworkManagerError
   ) {
     // TODO: Show Alert
-    Log.d(receivedError)
+    Log.d(error)
   }
 }
