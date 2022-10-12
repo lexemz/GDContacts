@@ -5,11 +5,11 @@
 //  Created by Igor Buzykin on 11.10.2022.
 //
 
-import UIKit
 import Kingfisher
+import SimpleImageViewer
+import UIKit
 
 class ContactDetailViewController: UIViewController {
-  
   @IBOutlet var contactImageView: UIImageView!
   @IBOutlet var birthdateLabel: UILabel!
   @IBOutlet var localTimeLabel: UILabel!
@@ -23,6 +23,7 @@ class ContactDetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureUI()
+    setupGestureRecognizers()
   }
   
   private func configureUI() {
@@ -40,5 +41,22 @@ class ContactDetailViewController: UIViewController {
     contactImageView.kf.setImage(with: URL(string: contact.picURL))
     contactImageView.layer.cornerRadius = 10
     contactImageView.layer.masksToBounds = true
+  }
+  
+  private func setupGestureRecognizers() {
+    let tapGestureRecognizer = UITapGestureRecognizer(
+      target: self,
+      action: #selector(imageViewTapDetected)
+    )
+    contactImageView.addGestureRecognizer(tapGestureRecognizer)
+  }
+  
+  @objc
+  private func imageViewTapDetected() {
+    let configuration = ImageViewerConfiguration { config in
+      config.imageView = contactImageView
+    }
+    let imageViewer = ImageViewerController(configuration: configuration)
+    present(imageViewer, animated: true)
   }
 }
