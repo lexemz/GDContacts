@@ -6,11 +6,23 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ContactViewCell: UITableViewCell {
   
-  private let contactImageView = UIImageView()
-  private let contactLabel = UILabel()
+  private let contactImageView: UIImageView = {
+    let imageView = UIImageView()
+    imageView.translatesAutoresizingMaskIntoConstraints = false
+    imageView.kf.indicatorType = .activity
+    return imageView
+  }()
+  
+  private let contactLabel: UILabel = {
+    let label = UILabel()
+    label.translatesAutoresizingMaskIntoConstraints = false
+    label.numberOfLines = 2
+    return label
+  }()
 
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -24,20 +36,26 @@ class ContactViewCell: UITableViewCell {
   override func layoutSubviews() {
     super.layoutSubviews()
     contactImageView.layer.cornerRadius = contactImageView.frame.height / 2
+    contactImageView.layer.masksToBounds = true
+  }
+  
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    contactImageView.image = nil
   }
   
   func configure(with contact: ContactRepresentable) {
     contactLabel.text = contact.fullname
+    contactImageView.kf.setImage(
+      with: URL(string: contact.picURL)
+    )
   }
   
   private func configureUI() {
+    accessoryType = .disclosureIndicator
+    
     contentView.addSubview(contactImageView)
     contentView.addSubview(contactLabel)
-    
-    contactImageView.translatesAutoresizingMaskIntoConstraints = false
-    contactLabel.translatesAutoresizingMaskIntoConstraints = false
-    
-    contactLabel.numberOfLines = 2
     
     NSLayoutConstraint.activate([
       contactImageView.widthAnchor.constraint(equalTo: contactImageView.heightAnchor, multiplier: 1.0/1.0),
