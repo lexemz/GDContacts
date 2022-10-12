@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E6B67F399F5F19906793B6A /* Pods_GreenData_iOS_Case.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDBB9BA2E8C1643A720FA4A4 /* Pods_GreenData_iOS_Case.framework */; };
+		F93AC44028F7375700685700 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93AC43F28F7375700685700 /* DateManager.swift */; };
 		F9D090E128F5C27F00051BEE /* ContactRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D090E028F5C27F00051BEE /* ContactRepresentable.swift */; };
 		F9D090E328F5CD6D00051BEE /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D090E228F5CD6D00051BEE /* ContactsManager.swift */; };
 		F9D090E628F5E5AC00051BEE /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D090E528F5E5AC00051BEE /* Log.swift */; };
@@ -31,6 +32,7 @@
 		70E097BF736E01DF326184CC /* Pods-GreenData-iOS-Case.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenData-iOS-Case.debug.xcconfig"; path = "Target Support Files/Pods-GreenData-iOS-Case/Pods-GreenData-iOS-Case.debug.xcconfig"; sourceTree = "<group>"; };
 		BDBB9BA2E8C1643A720FA4A4 /* Pods_GreenData_iOS_Case.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreenData_iOS_Case.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDAB9FB89A1474EDF1770D75 /* Pods-GreenData-iOS-Case.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenData-iOS-Case.release.xcconfig"; path = "Target Support Files/Pods-GreenData-iOS-Case/Pods-GreenData-iOS-Case.release.xcconfig"; sourceTree = "<group>"; };
+		F93AC43F28F7375700685700 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		F9D090E028F5C27F00051BEE /* ContactRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRepresentable.swift; sourceTree = "<group>"; };
 		F9D090E228F5CD6D00051BEE /* ContactsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
 		F9D090E528F5E5AC00051BEE /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -78,7 +80,6 @@
 				70E097BF736E01DF326184CC /* Pods-GreenData-iOS-Case.debug.xcconfig */,
 				EDAB9FB89A1474EDF1770D75 /* Pods-GreenData-iOS-Case.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -184,6 +185,7 @@
 				F9E4D44D28F590A100FCAB85 /* CoreDataManager.swift */,
 				F9E4D45428F59E7200FCAB85 /* NetworkManager.swift */,
 				F9D090E228F5CD6D00051BEE /* ContactsManager.swift */,
+				F93AC43F28F7375700685700 /* DateManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -329,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9E4D43428F5876F00FCAB85 /* ContactsListViewController.swift in Sources */,
+				F93AC44028F7375700685700 /* DateManager.swift in Sources */,
 				F9E4D43028F5876F00FCAB85 /* AppDelegate.swift in Sources */,
 				F9D090E628F5E5AC00051BEE /* Log.swift in Sources */,
 				F9E4D43228F5876F00FCAB85 /* SceneDelegate.swift in Sources */,
