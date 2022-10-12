@@ -9,6 +9,43 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Контакты-->
+        <scene sceneID="6bq-Y0-XcN">
+            <objects>
+                <viewController id="86D-V6-tbS" customClass="ContactsListViewController" customModule="GreenData_iOS_Case" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Eb-Jd-ktB">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vZD-gC-eFP">
+                                <rect key="frame" x="0.0" y="143" width="390" height="701"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="dKA-9m-tUJ">
+                                <rect key="frame" x="185" y="412" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ARq-CZ-8Xd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vZD-gC-eFP" firstAttribute="trailing" secondItem="ARq-CZ-8Xd" secondAttribute="trailing" id="TrH-4l-77r"/>
+                            <constraint firstItem="dKA-9m-tUJ" firstAttribute="centerY" secondItem="8Eb-Jd-ktB" secondAttribute="centerY" id="Zy0-4K-WmO"/>
+                            <constraint firstAttribute="bottom" secondItem="vZD-gC-eFP" secondAttribute="bottom" id="hop-Hc-TiH"/>
+                            <constraint firstItem="dKA-9m-tUJ" firstAttribute="centerX" secondItem="8Eb-Jd-ktB" secondAttribute="centerX" id="ool-9b-Nc4"/>
+                            <constraint firstItem="vZD-gC-eFP" firstAttribute="top" secondItem="ARq-CZ-8Xd" secondAttribute="top" id="tHg-G1-kHo"/>
+                            <constraint firstItem="vZD-gC-eFP" firstAttribute="leading" secondItem="ARq-CZ-8Xd" secondAttribute="leading" id="zqS-xa-Y8i"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Контакты" id="1da-tx-2WX"/>
+                    <connections>
+                        <outlet property="mainActivityIndicator" destination="dKA-9m-tUJ" id="zia-pQ-T1v"/>
+                        <outlet property="tableView" destination="vZD-gC-eFP" id="kLe-6v-Hm8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YTD-7y-F8f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="887.69230769230762" y="-34.123222748815166"/>
+        </scene>
         <!--{contactName}-->
         <scene sceneID="wBo-VU-WX6">
             <objects>
@@ -37,31 +74,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="MrR-ec-dk8" kind="relationship" relationship="rootViewController" id="cBL-Q0-Lzw"/>
+                        <segue destination="86D-V6-tbS" kind="relationship" relationship="rootViewController" id="BOu-s0-JLg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xZE-fJ-h0U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="69.230769230769226" y="-34.123222748815166"/>
-        </scene>
-        <!--Контакты-->
-        <scene sceneID="cJx-k6-egl">
-            <objects>
-                <tableViewController storyboardIdentifier="ContactsListViewController" id="MrR-ec-dk8" customClass="ContactsListViewController" customModule="GreenData_iOS_Case" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="CV1-pN-KMK">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <connections>
-                            <outlet property="dataSource" destination="MrR-ec-dk8" id="amY-hw-Mwz"/>
-                            <outlet property="delegate" destination="MrR-ec-dk8" id="QGD-wW-BUl"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Контакты" id="RWC-6h-cdl"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Nk-zJ-I4p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="885" y="-34"/>
         </scene>
     </scenes>
     <resources>
