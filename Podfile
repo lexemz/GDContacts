@@ -7,4 +7,5 @@ target 'GreenData-iOS-Case' do
 
   # Pods for GreenData-iOS-Case
   pod 'Kingfisher', '~> 7.0'
+  pod 'SimpleImageViewer', '~> 1.1.1'
 end
