@@ -76,7 +76,8 @@ extension ContactsListViewController: UITableViewDataSource {
     cellForRowAt indexPath: IndexPath
   ) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(
-      withIdentifier: ContactViewCell.reuseIdentifier
+      withIdentifier: ContactViewCell.reuseIdentifier,
+      for: indexPath
     ) as! ContactViewCell
 
     cell.configure(with: contacts[indexPath.row])
