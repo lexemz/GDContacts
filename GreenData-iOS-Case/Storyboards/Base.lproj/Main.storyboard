@@ -57,13 +57,7 @@
                             <outlet property="delegate" destination="MrR-ec-dk8" id="QGD-wW-BUl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Контакты" id="RWC-6h-cdl">
-                        <barButtonItem key="leftBarButtonItem" title="Fetch Contacts" id="SyD-nj-dsj">
-                            <connections>
-                                <action selector="fetchContactsTap:" destination="MrR-ec-dk8" id="NTW-2G-wIa"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Контакты" id="RWC-6h-cdl"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Nk-zJ-I4p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

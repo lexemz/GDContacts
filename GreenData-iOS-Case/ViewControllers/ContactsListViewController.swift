@@ -12,18 +12,14 @@ class ContactsListViewController: UITableViewController {
   private let contactsManager = ContactsManager()
   
   private var contacts: [ContactRepresentable] = []
+  
+  // MARK: - VC lifecycle methods
 
   override func viewDidLoad() {
     super.viewDidLoad()
     contactsManager.delegate = self
     configureTableView()
     contactsManager.startFetchContacts()
-  }
-
-  // MARK: - IBActions
-  
-  @IBAction func fetchContactsTap(_ sender: UIBarButtonItem) {
-    fetchContactsFromManager()
   }
   
   // MARK: - Flow methods
@@ -60,10 +56,14 @@ class ContactsListViewController: UITableViewController {
   ) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: ContactViewCell.reuseIdentifier) as! ContactViewCell
     cell.configure(with: contacts[indexPath.row])
+    
+    if indexPath.row == contacts.count - 3 {
+      loadMoreContacts()
+    }
     return cell
   }
   
-  // MARK: - TableViewDataSource
+  // MARK: - TableViewDelegate
   
   override func tableView(
     _ tableView: UITableView,
@@ -71,6 +71,12 @@ class ContactsListViewController: UITableViewController {
   ) {
     tableView.deselectRow(at: indexPath, animated: true)
     openContantViewController(with: contacts[indexPath.row])
+  }
+  
+  // MARK: - Flow methods
+  
+  private func loadMoreContacts() {
+    contactsManager.startFetchContacts()
   }
 }
 
