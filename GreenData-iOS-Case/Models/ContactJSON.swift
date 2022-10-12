@@ -55,8 +55,9 @@ extension ContactJSON: ContactRepresentable {
   var mail: String { email }
   var birthdayDate: String { dob.date }
   var birthdayAge: Int { dob.age }
-  var localTime: String { location.timezone.offset }
+  var localTimeOffset: String { location.timezone.offset }
   var picURL: String { picture.large }
+  var phoneNumber: String { phone }
 
   func generateMock() -> [ContactJSON] {
     [

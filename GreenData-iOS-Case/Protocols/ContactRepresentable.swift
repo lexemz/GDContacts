@@ -13,7 +13,8 @@ protocol ContactRepresentable {
   var birthdayDate: String { get }
   var birthdayAge: Int { get }
   var mail: String { get }
-  var localTime: String { get }
+  var localTimeOffset: String { get }
+  var phoneNumber: String { get }
   
   var picURL: String { get }
   
