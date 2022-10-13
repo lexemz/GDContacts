@@ -39,35 +39,38 @@ class CoreDataManager {
     return []
   }
 
-  func createNewObject(_ contact: Contact) {
+  func createNewObjects(_ contacts: [Contact]) {
     guard let entityDescription = NSEntityDescription.entity(
       forEntityName: "ContactCoreData",
       in: context
     ) else { return }
-    guard let createdContact = NSManagedObject(
-      entity: entityDescription,
-      insertInto: context
-    ) as? ContactCoreData else { return }
+    for contact in contacts {
+      guard let createdContact = NSManagedObject(
+        entity: entityDescription,
+        insertInto: context
+      ) as? ContactCoreData else { return }
 
-    createdContact.fullname = contact.fullname
-    createdContact.gender = contact.gender
-    createdContact.mail = contact.mail
-    createdContact.birthdayDate = contact.birthdayDate
-    createdContact.birthdayAge = Int64(contact.birthdayAge)
-    createdContact.localTimeOffset = contact.localTimeOffset
-    createdContact.picURL = contact.picURL
-    createdContact.phoneNumber = contact.phoneNumber
-
+      createdContact.fullname = contact.fullname
+      createdContact.gender = contact.gender.rawValue
+      createdContact.mail = contact.mail
+      createdContact.birthdayDate = contact.birthdayDate
+      createdContact.birthdayAge = Int64(contact.birthdayAge)
+      createdContact.localTimeOffset = contact.localTimeOffset
+      createdContact.picURL = contact.picURL
+      createdContact.phoneNumber = contact.phoneNumber
+    }
     saveContext()
   }
 
   func deleteAllObjects() {
-    let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "ContactCoreData")
+    let fetchRequest: NSFetchRequest<NSFetchRequestResult>
+    fetchRequest = NSFetchRequest(entityName: "ContactCoreData")
     let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+    deleteRequest.resultType = .resultTypeObjectIDs
     do {
       try context.execute(deleteRequest)
     } catch {
-      Log.e("Failed to delete all  щиоусеы", error)
+      Log.e("Failed to delete all entities", error)
     }
     saveContext()
   }

@@ -38,10 +38,9 @@ final class ContactsManager {
     Log.d("Получены контакты: page = \(randomUserJson.info.page)")
     if requestPage == 1 { coreDataManager.deleteAllObjects() }
     let contacts = randomUserJson.results.map { contactJson in
-      let contact = Contact(contactJSON: contactJson)
-      coreDataManager.createNewObject(contact)
-      return contact
+      Contact(contactJSON: contactJson)
     }
+    coreDataManager.createNewObjects(contacts)
     
     delegate?.contactsManager(self, didReceive: contacts)
     self.requestPage += 1
