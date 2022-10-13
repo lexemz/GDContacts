@@ -6,13 +6,22 @@
 //
 
 import Foundation
+import Network
 
 class NetworkManager {
   static let shared = NetworkManager()
   
+  var isOnline: Bool { _isOnline }
+  
   private let urlAPI = "https://randomuser.me/api/?results=100"
   
-  private init() {}
+  private let monitor = NWPathMonitor()
+  private let monitorQueue = DispatchQueue(label: "com.lexemz.GreenData-iOS-Case.networkMonitor")
+  private var _isOnline = false
+  
+  private init() {
+    startMonitor()
+  }
   
   func fetch<T: Decodable>(
     _ type: T.Type,
@@ -50,5 +59,12 @@ class NetworkManager {
         completion(.failure(.decodeError(error)))
       }
     }.resume()
+  }
+  
+  private func startMonitor() {
+    monitor.pathUpdateHandler = { [weak self] path in
+      self?._isOnline = path.status == .satisfied ? true : false
+    }
+    monitor.start(queue: monitorQueue)
   }
 }
