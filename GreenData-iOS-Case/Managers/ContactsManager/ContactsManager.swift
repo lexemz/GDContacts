@@ -7,21 +7,6 @@
 
 import Foundation
 
-protocol ContactsManagerDelegate: AnyObject {
-  func contactsManager(
-    _ contactsManager: ContactsManager,
-    didReceive contacts: [ContactRepresentable]
-  )
-  func contactsManager(
-    _ contactsManager: ContactsManager,
-    didReceive event: ContactManagerEvents
-  )
-}
-
-enum ContactManagerEvents {
-    case networkError
-}
-
 final class ContactsManager {
   var delegate: ContactsManagerDelegate?
 

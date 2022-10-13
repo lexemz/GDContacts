@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1E6B67F399F5F19906793B6A /* Pods_GreenData_iOS_Case.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDBB9BA2E8C1643A720FA4A4 /* Pods_GreenData_iOS_Case.framework */; };
 		F93AC44028F7375700685700 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93AC43F28F7375700685700 /* DateManager.swift */; };
+		F93AC44328F826F600685700 /* NetworkManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93AC44228F826F600685700 /* NetworkManagerError.swift */; };
+		F93AC44628F8271600685700 /* ContactsManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93AC44528F8271600685700 /* ContactsManagerDelegate.swift */; };
+		F93AC44828F8272700685700 /* ContactManagerEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93AC44728F8272700685700 /* ContactManagerEvents.swift */; };
 		F9D090E128F5C27F00051BEE /* ContactRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D090E028F5C27F00051BEE /* ContactRepresentable.swift */; };
 		F9D090E328F5CD6D00051BEE /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D090E228F5CD6D00051BEE /* ContactsManager.swift */; };
 		F9D090E628F5E5AC00051BEE /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D090E528F5E5AC00051BEE /* Log.swift */; };
@@ -33,6 +36,9 @@
 		BDBB9BA2E8C1643A720FA4A4 /* Pods_GreenData_iOS_Case.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreenData_iOS_Case.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDAB9FB89A1474EDF1770D75 /* Pods-GreenData-iOS-Case.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenData-iOS-Case.release.xcconfig"; path = "Target Support Files/Pods-GreenData-iOS-Case/Pods-GreenData-iOS-Case.release.xcconfig"; sourceTree = "<group>"; };
 		F93AC43F28F7375700685700 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		F93AC44228F826F600685700 /* NetworkManagerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerError.swift; sourceTree = "<group>"; };
+		F93AC44528F8271600685700 /* ContactsManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManagerDelegate.swift; sourceTree = "<group>"; };
+		F93AC44728F8272700685700 /* ContactManagerEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactManagerEvents.swift; sourceTree = "<group>"; };
 		F9D090E028F5C27F00051BEE /* ContactRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRepresentable.swift; sourceTree = "<group>"; };
 		F9D090E228F5CD6D00051BEE /* ContactsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
 		F9D090E528F5E5AC00051BEE /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -81,6 +87,25 @@
 				EDAB9FB89A1474EDF1770D75 /* Pods-GreenData-iOS-Case.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F93AC44128F826E500685700 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				F9E4D45428F59E7200FCAB85 /* NetworkManager.swift */,
+				F93AC44228F826F600685700 /* NetworkManagerError.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		F93AC44428F8270900685700 /* ContactsManager */ = {
+			isa = PBXGroup;
+			children = (
+				F9D090E228F5CD6D00051BEE /* ContactsManager.swift */,
+				F93AC44528F8271600685700 /* ContactsManagerDelegate.swift */,
+				F93AC44728F8272700685700 /* ContactManagerEvents.swift */,
+			);
+			path = ContactsManager;
 			sourceTree = "<group>";
 		};
 		F9D090E428F5E59D00051BEE /* Utils */ = {
@@ -183,9 +208,9 @@
 			isa = PBXGroup;
 			children = (
 				F9E4D44D28F590A100FCAB85 /* CoreDataManager.swift */,
-				F9E4D45428F59E7200FCAB85 /* NetworkManager.swift */,
-				F9D090E228F5CD6D00051BEE /* ContactsManager.swift */,
 				F93AC43F28F7375700685700 /* DateManager.swift */,
+				F93AC44128F826E500685700 /* NetworkManager */,
+				F93AC44428F8270900685700 /* ContactsManager */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -333,14 +358,17 @@
 				F9E4D43428F5876F00FCAB85 /* ContactsListViewController.swift in Sources */,
 				F93AC44028F7375700685700 /* DateManager.swift in Sources */,
 				F9E4D43028F5876F00FCAB85 /* AppDelegate.swift in Sources */,
+				F93AC44328F826F600685700 /* NetworkManagerError.swift in Sources */,
 				F9D090E628F5E5AC00051BEE /* Log.swift in Sources */,
 				F9E4D43228F5876F00FCAB85 /* SceneDelegate.swift in Sources */,
 				F9D090EB28F6090000051BEE /* UITableViewCell+Extensions.swift in Sources */,
 				F9D090E128F5C27F00051BEE /* ContactRepresentable.swift in Sources */,
+				F93AC44628F8271600685700 /* ContactsManagerDelegate.swift in Sources */,
 				F9E4D45728F59FD400FCAB85 /* ContactJSON.swift in Sources */,
 				F9E4D45328F59A6800FCAB85 /* UIViewController+Extensions.swift in Sources */,
 				F9E4D45528F59E7200FCAB85 /* NetworkManager.swift in Sources */,
 				F9E4D44E28F590A100FCAB85 /* CoreDataManager.swift in Sources */,
+				F93AC44828F8272700685700 /* ContactManagerEvents.swift in Sources */,
 				F9E4D43A28F5876F00FCAB85 /* GreenData_iOS_Case.xcdatamodeld in Sources */,
 				F9D090E328F5CD6D00051BEE /* ContactsManager.swift in Sources */,
 				F9E4D45128F599C700FCAB85 /* ContactDetailViewController.swift in Sources */,
