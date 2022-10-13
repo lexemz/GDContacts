@@ -73,4 +73,15 @@ enum ContactGender: String {
   case male = "Мужчина"
   case female = "Женщина"
   case unknown = "Неизвестно"
+  
+  var imageName: String {
+    switch self {
+    case .male:
+      return "mars-solid"
+    case .female:
+      return "venus-solid"
+    case .unknown:
+      return "venus-mars-solid"
+    }
+  }
 }
