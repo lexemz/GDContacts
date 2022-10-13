@@ -125,13 +125,12 @@ extension ContactsListViewController: ContactsManagerDelegate {
       self.hideActivityIndicator()
     }
   }
-
+  
   func contactsManager(
     _ contactsManager: ContactsManager,
-    didReceive error: NetworkManagerError
+    didReceive event: ContactManagerEvents
   ) {
     // TODO: Show Alert
     tableView.tableFooterView?.isHidden = true
-    Log.d(error)
   }
 }

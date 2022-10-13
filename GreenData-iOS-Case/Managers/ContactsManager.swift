@@ -14,8 +14,12 @@ protocol ContactsManagerDelegate: AnyObject {
   )
   func contactsManager(
     _ contactsManager: ContactsManager,
-    didReceive error: NetworkManagerError
+    didReceive event: ContactManagerEvents
   )
+}
+
+enum ContactManagerEvents {
+    case networkError
 }
 
 final class ContactsManager {
@@ -38,7 +42,8 @@ final class ContactsManager {
       case .success(let randomUserJSON):
         self.handleSuccessRequest(with: randomUserJSON)
       case .failure(let error):
-        self.delegate?.contactsManager(self, didReceive: error)
+        Log.e(error)
+        self.delegate?.contactsManager(self, didReceive: .networkError)
       }
     }
   }
