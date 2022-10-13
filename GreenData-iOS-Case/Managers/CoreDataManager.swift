@@ -9,49 +9,79 @@ import CoreData
 
 class CoreDataManager {
   static let shared = CoreDataManager()
-  
+
   private let persistentContainer: NSPersistentContainer
   private let context: NSManagedObjectContext
-  
-  
+
   // MARK: - Core Data stack
-  
+
   private init() {
     let container = NSPersistentContainer(name: "GreenData_iOS_Case")
-    container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-        if let error = error as NSError? {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-             
-            /*
-             Typical reasons for an error here include:
-             * The parent directory does not exist, cannot be created, or disallows writing.
-             * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-             * The device is out of space.
-             * The store could not be migrated to the current model version.
-             Check the error message to determine what the actual problem was.
-             */
-            fatalError("Unresolved error \(error), \(error.userInfo)")
-        }
+    container.loadPersistentStores(completionHandler: { _, error in
+      if let error = error as NSError? {
+        fatalError("Unresolved error \(error), \(error.userInfo)")
+      }
     })
 
     persistentContainer = container
     context = container.viewContext
   }
-  
-  // MARK: - Core Data Saving support
 
-  func saveContext () {
-      let context = persistentContainer.viewContext
-      if context.hasChanges {
-          do {
-              try context.save()
-          } catch {
-              // Replace this implementation with code to handle the error appropriately.
-              // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-              let nserror = error as NSError
-              fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-          }
+  // MARK: - Core Data Saving support
+  
+  func fetchData() -> [ContactCoreData] {
+    let fetchRequest = ContactCoreData.fetchRequest()
+    do {
+      return try context.fetch(fetchRequest)
+    } catch {
+      Log.e("Failed to fetch data", error)
+    }
+    return []
+  }
+
+  func createNewObject(_ contact: Contact) {
+    guard let entityDescription = NSEntityDescription.entity(
+      forEntityName: "ContactCoreData",
+      in: context
+    ) else { return }
+    guard let createdContact = NSManagedObject(
+      entity: entityDescription,
+      insertInto: context
+    ) as? ContactCoreData else { return }
+
+    createdContact.fullname = contact.fullname
+    createdContact.gender = contact.gender
+    createdContact.mail = contact.mail
+    createdContact.birthdayDate = contact.birthdayDate
+    createdContact.birthdayAge = Int64(contact.birthdayAge)
+    createdContact.localTimeOffset = contact.localTimeOffset
+    createdContact.picURL = contact.picURL
+    createdContact.phoneNumber = contact.phoneNumber
+
+    saveContext()
+  }
+
+  func deleteAllObjects() {
+    let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "ContactCoreData")
+    let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+    do {
+      try context.execute(deleteRequest)
+    } catch {
+      Log.e("Failed to delete all  щиоусеы", error)
+    }
+    saveContext()
+  }
+  
+  private func saveContext() {
+    let context = persistentContainer.viewContext
+    if context.hasChanges {
+      do {
+        try context.save()
+      } catch {
+        context.rollback()
+        let nserror = error as NSError
+        fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
       }
+    }
   }
 }

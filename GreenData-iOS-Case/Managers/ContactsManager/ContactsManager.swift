@@ -11,6 +11,7 @@ final class ContactsManager {
   var delegate: ContactsManagerDelegate?
 
   private let networkManager = NetworkManager.shared
+  private let coreDataManager = CoreDataManager.shared
   private var requestPage = 1
 
   func fetchContacts() {
@@ -35,18 +36,13 @@ final class ContactsManager {
   
   private func handleSuccessRequest(with randomUserJson: RandomUserJSON) {
     Log.d("Получены контакты: page = \(randomUserJson.info.page)")
-    let contacts = randomUserJson.results.map { contact in
-      Contact(
-        fullname: "\(contact.name.first) \(contact.name.last)",
-        gender: contact.gender,
-        mail: contact.email,
-        birthdayDate: contact.dob.date,
-        birthdayAge: contact.dob.age,
-        localTimeOffset: contact.location.timezone.offset,
-        picURL: contact.picture.large,
-        phoneNumber: contact.phone
-      )
+    if requestPage == 1 { coreDataManager.deleteAllObjects() }
+    let contacts = randomUserJson.results.map { contactJson in
+      let contact = Contact(contactJSON: contactJson)
+      coreDataManager.createNewObject(contact)
+      return contact
     }
+    
     delegate?.contactsManager(self, didReceive: contacts)
     self.requestPage += 1
   }
