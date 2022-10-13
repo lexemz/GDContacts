@@ -9,7 +9,7 @@ import Foundation
 
 struct Contact {
   let fullname: String
-  let gender: String
+  let gender: ContactGender
   let mail: String
   let birthdayDate: String
   let birthdayAge: Int
@@ -28,13 +28,18 @@ struct Contact {
     phoneNumber: String
   ) {
     self.fullname = fullname
-    self.gender = gender
     self.mail = mail
     self.birthdayDate = birthdayDate
     self.birthdayAge = birthdayAge
     self.localTimeOffset = localTimeOffset
     self.picURL = picURL
     self.phoneNumber = phoneNumber
+    
+    switch gender {
+    case "male": self.gender = .male
+    case "female": self.gender = .female
+    default: self.gender = .unknown
+    }
   }
   
   init(contactJSON contact: ContactJSON) {
@@ -62,4 +67,10 @@ struct Contact {
       phoneNumber: contact.phoneNumber ?? ""
     )
   }
+}
+
+enum ContactGender: String {
+  case male = "Мужчина"
+  case female = "Женщина"
+  case unknown = "Неизвестно"
 }
