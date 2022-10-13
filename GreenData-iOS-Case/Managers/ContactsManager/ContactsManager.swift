@@ -35,7 +35,18 @@ final class ContactsManager {
   
   private func handleSuccessRequest(with randomUserJson: RandomUserJSON) {
     Log.d("Получены контакты: page = \(randomUserJson.info.page)")
-    let contacts = randomUserJson.results.map { $0 }
+    let contacts = randomUserJson.results.map { contact in
+      Contact(
+        fullname: "\(contact.name.first) \(contact.name.last)",
+        gender: contact.gender,
+        mail: contact.email,
+        birthdayDate: contact.dob.date,
+        birthdayAge: contact.dob.age,
+        localTimeOffset: contact.location.timezone.offset,
+        picURL: contact.picture.large,
+        phoneNumber: contact.phone
+      )
+    }
     delegate?.contactsManager(self, didReceive: contacts)
     self.requestPage += 1
   }

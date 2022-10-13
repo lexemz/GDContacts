@@ -12,7 +12,7 @@
 		F93AC44328F826F600685700 /* NetworkManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93AC44228F826F600685700 /* NetworkManagerError.swift */; };
 		F93AC44628F8271600685700 /* ContactsManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93AC44528F8271600685700 /* ContactsManagerDelegate.swift */; };
 		F93AC44828F8272700685700 /* ContactManagerEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93AC44728F8272700685700 /* ContactManagerEvents.swift */; };
-		F9D090E128F5C27F00051BEE /* ContactRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D090E028F5C27F00051BEE /* ContactRepresentable.swift */; };
+		F93AC45928F8468900685700 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93AC45828F8468900685700 /* Contact.swift */; };
 		F9D090E328F5CD6D00051BEE /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D090E228F5CD6D00051BEE /* ContactsManager.swift */; };
 		F9D090E628F5E5AC00051BEE /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D090E528F5E5AC00051BEE /* Log.swift */; };
 		F9D090E928F6050400051BEE /* ContactViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D090E828F6050400051BEE /* ContactViewCell.swift */; };
@@ -39,7 +39,7 @@
 		F93AC44228F826F600685700 /* NetworkManagerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerError.swift; sourceTree = "<group>"; };
 		F93AC44528F8271600685700 /* ContactsManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManagerDelegate.swift; sourceTree = "<group>"; };
 		F93AC44728F8272700685700 /* ContactManagerEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactManagerEvents.swift; sourceTree = "<group>"; };
-		F9D090E028F5C27F00051BEE /* ContactRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRepresentable.swift; sourceTree = "<group>"; };
+		F93AC45828F8468900685700 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		F9D090E228F5CD6D00051BEE /* ContactsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
 		F9D090E528F5E5AC00051BEE /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		F9D090E828F6050400051BEE /* ContactViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewCell.swift; sourceTree = "<group>"; };
@@ -199,6 +199,7 @@
 		F9E4D44A28F58BD900FCAB85 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F93AC45828F8468900685700 /* Contact.swift */,
 				F9E4D45628F59FD400FCAB85 /* ContactJSON.swift */,
 			);
 			path = Models;
@@ -235,7 +236,6 @@
 		F9E4D45828F5A2E900FCAB85 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				F9D090E028F5C27F00051BEE /* ContactRepresentable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -356,13 +356,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9E4D43428F5876F00FCAB85 /* ContactsListViewController.swift in Sources */,
+				F93AC45928F8468900685700 /* Contact.swift in Sources */,
 				F93AC44028F7375700685700 /* DateManager.swift in Sources */,
 				F9E4D43028F5876F00FCAB85 /* AppDelegate.swift in Sources */,
 				F93AC44328F826F600685700 /* NetworkManagerError.swift in Sources */,
 				F9D090E628F5E5AC00051BEE /* Log.swift in Sources */,
 				F9E4D43228F5876F00FCAB85 /* SceneDelegate.swift in Sources */,
 				F9D090EB28F6090000051BEE /* UITableViewCell+Extensions.swift in Sources */,
-				F9D090E128F5C27F00051BEE /* ContactRepresentable.swift in Sources */,
 				F93AC44628F8271600685700 /* ContactsManagerDelegate.swift in Sources */,
 				F9E4D45728F59FD400FCAB85 /* ContactJSON.swift in Sources */,
 				F9E4D45328F59A6800FCAB85 /* UIViewController+Extensions.swift in Sources */,

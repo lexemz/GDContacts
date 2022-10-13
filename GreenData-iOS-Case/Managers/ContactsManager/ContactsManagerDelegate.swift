@@ -10,7 +10,7 @@ import Foundation
 protocol ContactsManagerDelegate: AnyObject {
   func contactsManager(
     _ contactsManager: ContactsManager,
-    didReceive contacts: [ContactRepresentable]
+    didReceive contacts: [Contact]
   )
   func contactsManager(
     _ contactsManager: ContactsManager,

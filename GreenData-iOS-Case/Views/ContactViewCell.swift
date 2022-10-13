@@ -44,7 +44,7 @@ class ContactViewCell: UITableViewCell {
     contactImageView.image = nil
   }
   
-  func configure(with contact: ContactRepresentable) {
+  func configure(with contact: Contact) {
     contactLabel.text = contact.fullname
     contactImageView.kf.setImage(
       with: URL(string: contact.picURL)

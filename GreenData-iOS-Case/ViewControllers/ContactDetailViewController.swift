@@ -17,7 +17,7 @@ class ContactDetailViewController: UIViewController {
   @IBOutlet var numberLabel: UILabel!
   @IBOutlet var mailLabel: UILabel!
   
-  var contact: ContactRepresentable!
+  var contact: Contact!
   let dateManager = DateManager()
   
   override func viewDidLoad() {

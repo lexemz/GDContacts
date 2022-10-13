@@ -17,7 +17,7 @@ class ContactsListViewController: UIViewController {
   private let contactsManager = ContactsManager()
 
   // Flow Properties
-  private var contacts: [ContactRepresentable] = []
+  private var contacts: [Contact] = []
 
   // MARK: - VC lifecycle methods
 
@@ -30,7 +30,7 @@ class ContactsListViewController: UIViewController {
 
   // MARK: - Flow methods
 
-  private func openContantViewController(with contact: ContactRepresentable) {
+  private func openContantViewController(with contact: Contact) {
     let contactVC = ContactDetailViewController.instanceFromStoryboard()
     contactVC.contact = contact
     navigationController?.pushViewController(contactVC, animated: true)
@@ -116,7 +116,7 @@ extension ContactsListViewController: UITableViewDelegate {
 extension ContactsListViewController: ContactsManagerDelegate {
   func contactsManager(
     _ contactsManager: ContactsManager,
-    didReceive contacts: [ContactRepresentable]
+    didReceive contacts: [Contact]
   ) {
     Log.d(contacts)
     DispatchQueue.main.async {
