@@ -84,7 +84,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Aj0-s2-gct">
                                         <rect key="frame" x="0.0" y="0.0" width="158.66666666666666" height="20"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cake-candles-solid" translatesAutoresizingMaskIntoConstraints="NO" id="mRb-9Y-zRE">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cake-candles-solid" translatesAutoresizingMaskIntoConstraints="NO" id="mRb-9Y-zRE">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="mRb-9Y-zRE" secondAttribute="height" id="SoY-Tg-Eic"/>
@@ -102,7 +102,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ndi-Co-ets">
                                         <rect key="frame" x="0.0" y="30" width="158.66666666666666" height="20"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mars-solid" translatesAutoresizingMaskIntoConstraints="NO" id="PaL-eq-sDd">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mars-solid" translatesAutoresizingMaskIntoConstraints="NO" id="PaL-eq-sDd">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="PaL-eq-sDd" secondAttribute="height" id="2PB-38-aeh"/>
@@ -120,7 +120,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3ct-Cd-xdt">
                                         <rect key="frame" x="0.0" y="60" width="158.66666666666666" height="20"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock-solid" translatesAutoresizingMaskIntoConstraints="NO" id="UIB-ol-pKZ">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock-solid" translatesAutoresizingMaskIntoConstraints="NO" id="UIB-ol-pKZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="UIB-ol-pKZ" secondAttribute="height" id="HT3-EA-s36"/>
@@ -141,7 +141,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xem-K7-Xff">
                                         <rect key="frame" x="0.0" y="90" width="158.66666666666666" height="20"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock-solid" translatesAutoresizingMaskIntoConstraints="NO" id="x17-Q0-SrZ">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock-solid" translatesAutoresizingMaskIntoConstraints="NO" id="x17-Q0-SrZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="x17-Q0-SrZ" secondAttribute="height" id="6gf-VP-M3E"/>
@@ -180,6 +180,8 @@
                     <connections>
                         <outlet property="birthdateLabel" destination="LDE-md-qdo" id="6te-N4-ve1"/>
                         <outlet property="contactImageView" destination="3g9-bT-WU4" id="ZhH-HU-5d3"/>
+                        <outlet property="genderImageView" destination="PaL-eq-sDd" id="kj7-Ib-lY0"/>
+                        <outlet property="genderLabel" destination="Y5C-Pj-KgQ" id="2QG-7C-J1r"/>
                         <outlet property="localTimeLabel" destination="r0T-EZ-nnO" id="krt-hv-TwD"/>
                         <outlet property="mailLabel" destination="hG3-zq-dmg" id="xzO-0l-co7"/>
                         <outlet property="numberLabel" destination="ioM-Od-ul7" id="nav-lS-igD"/>

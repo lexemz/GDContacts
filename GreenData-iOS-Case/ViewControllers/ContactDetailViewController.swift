@@ -17,6 +17,9 @@ class ContactDetailViewController: UIViewController {
   @IBOutlet var numberLabel: UILabel!
   @IBOutlet var mailLabel: UILabel!
   
+  @IBOutlet var genderImageView: UIImageView!
+  @IBOutlet var genderLabel: UILabel!
+  
   var contact: Contact!
   let dateManager = DateManager()
   
@@ -37,7 +40,8 @@ class ContactDetailViewController: UIViewController {
     userTimeLabel.text = "Наше: \(dateManager.getCurrentTime())"
     let localTime = dateManager.getTimeByTimezone(timezone: contact.localTimeOffset) ?? "N/A"
     localTimeLabel.text = "Местное \(localTime)"
-    
+    genderLabel.text = contact.gender.rawValue
+    genderImageView.image = UIImage(named: contact.gender.imageName)
     contactImageView.kf.setImage(with: URL(string: contact.picURL))
     contactImageView.layer.cornerRadius = 10
     contactImageView.layer.masksToBounds = true
