@@ -46,6 +46,7 @@ final class ContactViewCell: UITableViewCell {
   
   func configure(with contact: Contact) {
     contactLabel.text = contact.fullname
+    contactImageView.contentMode = .scaleAspectFit
     contactImageView.kf.setImage(
       with: URL(string: contact.picURL)
     )
