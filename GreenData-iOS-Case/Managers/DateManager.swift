@@ -8,8 +8,13 @@
 import Foundation
 
 final class DateManager {
-  
   private let formatter = DateFormatter()
+  
+  private var timer: Timer?
+  
+  deinit {
+    timer?.invalidate()
+  }
   
   func parseISO8601Date(string: String) -> String? {
     let formatter8601 = ISO8601DateFormatter()
@@ -19,15 +24,24 @@ final class DateManager {
     return formatter.string(from: date)
   }
   
-  func getCurrentTime() -> String {
-    formatter.dateFormat = "HH:mm"
-    return formatter.string(from: Date())
-  }
-  
-  func getTimeByTimezone(timezone: String) -> String? {
-    guard let timeZone = TimeZone(abbreviation: "GMT\(timezone)") else { return nil }
-    formatter.timeZone = timeZone
-    formatter.dateFormat = "HH:mm"
-    return formatter.string(from: Date())
+  func startTrackingLiveTime(
+    for timezone: String,
+    tickHandler: ((_ contactTime: String, _ deviceTime: String) -> Void)?
+  ) {
+    let timerFormatter = DateFormatter()
+    timerFormatter.dateFormat = "HH:mm:ss"
+    timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+      var contactTimeStrng = "N/A"
+      
+      if let localTimeZone = TimeZone(abbreviation: "GMT\(timezone)") {
+        timerFormatter.timeZone = localTimeZone
+        contactTimeStrng = timerFormatter.string(from: Date())
+      }
+      timerFormatter.timeZone = .current
+      let deviceTimeString = timerFormatter.string(from: Date())
+      
+      tickHandler?(contactTimeStrng, deviceTimeString)
+    }
+    timer?.fire()
   }
 }
