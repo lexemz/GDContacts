@@ -9,7 +9,7 @@ import Kingfisher
 import SimpleImageViewer
 import UIKit
 
-class ContactDetailViewController: UIViewController {
+final class ContactDetailViewController: UIViewController {
   @IBOutlet var contactImageView: UIImageView!
   @IBOutlet var birthdateLabel: UILabel!
   @IBOutlet var localTimeLabel: UILabel!

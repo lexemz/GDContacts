@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Log {
+final class Log {
   private struct Context {
     enum LogLevel: String {
       case info = "[INFO]"

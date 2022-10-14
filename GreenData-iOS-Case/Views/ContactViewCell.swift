@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class ContactViewCell: UITableViewCell {
+final class ContactViewCell: UITableViewCell {
   
   private let contactImageView: UIImageView = {
     let imageView = UIImageView()
