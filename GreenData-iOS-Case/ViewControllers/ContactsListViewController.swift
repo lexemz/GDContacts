@@ -8,15 +8,16 @@
 import UIKit
 
 final class ContactsListViewController: UIViewController {
+  // MARK: - IBOutlets
   @IBOutlet var tableView: UITableView!
   @IBOutlet var mainActivityIndicator: UIActivityIndicatorView!
 
-  // MARK: - Private props
+  // MARK: - Private properties
 
   // Managers
   private let contactsManager = ContactsManager()
 
-  // Flow Properties
+  // Flow properties
   private var contacts: [Contact] = []
   private var networkErrorDidShow = false
 
@@ -29,7 +30,7 @@ final class ContactsListViewController: UIViewController {
     configureContactsManager()
   }
 
-  // MARK: - Flow methods
+  // MARK: - Flow private methods
 
   private func openContantViewController(with contact: Contact) {
     let contactVC = ContactDetailViewController.instanceFromStoryboard()
