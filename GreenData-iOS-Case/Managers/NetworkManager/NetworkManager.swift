@@ -20,7 +20,7 @@ final class NetworkManager {
   private var _isOnline = false
   
   private init() {
-    startMonitor()
+    startNetworkConnectionMonitor()
   }
   
   func fetch<T: Decodable>(
@@ -61,7 +61,7 @@ final class NetworkManager {
     }.resume()
   }
   
-  private func startMonitor() {
+  private func startNetworkConnectionMonitor() {
     monitor.pathUpdateHandler = { [weak self] path in
       self?._isOnline = path.status == .satisfied ? true : false
     }
