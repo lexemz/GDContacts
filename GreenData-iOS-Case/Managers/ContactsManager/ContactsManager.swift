@@ -13,6 +13,8 @@ final class ContactsManager {
   private let networkManager = NetworkManager.shared
   private let coreDataManager = CoreDataManager.shared
   private var requestPage = 1
+  private var offlineMode = !NetworkManager.shared.isOnline
+  private var backupDataDidShow = false
 
   func fetchContacts() {
     networkManager.fetch(
@@ -24,25 +26,40 @@ final class ContactsManager {
       ]
     ) { [weak self] result in
       guard let self = self else { return }
+      guard !self.offlineMode else {
+        self.loadContactsFromBackup()
+        return
+      }
       switch result {
       case .success(let randomUserJSON):
         self.handleSuccessRequest(with: randomUserJSON)
       case .failure(let error):
-        Log.e(error)
-        self.delegate?.contactsManager(self, didReceive: .networkError)
+        self.handleNetworkFailure(with: error)
       }
     }
   }
-  
+
   private func handleSuccessRequest(with randomUserJson: RandomUserJSON) {
-    Log.d("Получены контакты: page = \(randomUserJson.info.page)")
     if requestPage == 1 { coreDataManager.deleteAllObjects() }
     let contacts = randomUserJson.results.map { contactJson in
       Contact(contactJSON: contactJson)
     }
     coreDataManager.createNewObjects(contacts)
-    
+
     delegate?.contactsManager(self, didReceive: contacts)
-    self.requestPage += 1
+    requestPage += 1
+  }
+
+  private func handleNetworkFailure(with error: NetworkManagerError) {
+    delegate?.contactsManager(self, didReceive: .networkError(error))
+  }
+
+  private func loadContactsFromBackup() {
+    if !backupDataDidShow {
+      let contacts = coreDataManager.fetchData().map { Contact(contactCoreData: $0) }
+      delegate?.contactsManager(self, didReceive: contacts)
+      delegate?.contactsManager(self, didReceive: .offlineModeEnabled)
+      backupDataDidShow = true
+    }
   }
 }

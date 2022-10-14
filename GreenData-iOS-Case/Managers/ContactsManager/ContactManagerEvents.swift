@@ -8,5 +8,6 @@
 import Foundation
 
 enum ContactManagerEvents {
-    case networkError
+  case networkError(Error)
+  case offlineModeEnabled
 }
