@@ -28,14 +28,18 @@ final class ContactDetailViewController: UIViewController {
   
   // MARK: - Private properties
 
+  // Managers
   private let dateManager = DateManager()
+  
+  // Flow properties
+  private var phoneURL: URL?
+  private var mailURL: URL?
   
   // MARK: - VC lifecycle methods
   
   override func viewDidLoad() {
     super.viewDidLoad()
     configureUI()
-    configureGestureRecognizers()
   }
   
   // MARK: - Flow private methods
@@ -46,6 +50,9 @@ final class ContactDetailViewController: UIViewController {
     configureGenderInfo()
     configureImageView()
     configureTime()
+    validatePhoneNumber()
+    validateMail()
+    configureGestureRecognizers()
   }
   
   private func configureLabels() {
@@ -78,13 +85,50 @@ final class ContactDetailViewController: UIViewController {
     contactImageView.layer.masksToBounds = true
   }
   
+  private func validatePhoneNumber() {
+    let number = contact.phoneNumber.replacingOccurrences(
+      of: "[^0-9]",
+      with: "",
+      options: .regularExpression
+    )
+    guard let phoneURL = URL(string: "tel://\(number)") else { return }
+    if UIApplication.shared.canOpenURL(phoneURL) {
+      Log.d("Phone calling available")
+      numberLabel.textColor = .systemBlue
+      self.phoneURL = phoneURL
+    }
+  }
+  
+  private func validateMail() {
+    guard let mailULR = URL(string: "mailto:\(contact.mail)") else { return }
+    if UIApplication.shared.canOpenURL(mailULR) {
+      Log.d("Phone calling available")
+      mailLabel.textColor = .systemBlue
+      mailURL = mailULR
+    }
+  }
+  
   private func configureGestureRecognizers() {
-    let tapGestureRecognizer = UITapGestureRecognizer(
+    let imageViewTapGesture = UITapGestureRecognizer(
       target: self,
       action: #selector(imageViewTapDetected)
     )
-    contactImageView.addGestureRecognizer(tapGestureRecognizer)
+    contactImageView.addGestureRecognizer(imageViewTapGesture)
+    
+    let numberLabelTapGesture = UITapGestureRecognizer(
+      target: self,
+      action: #selector(numberLabelTapDetected)
+    )
+    numberLabel.addGestureRecognizer(numberLabelTapGesture)
+    
+    let mailLabelTapGesture = UITapGestureRecognizer(
+      target: self,
+      action: #selector(mailLabelTapDetected)
+    )
+    mailLabel.addGestureRecognizer(mailLabelTapGesture)
   }
+  
+  // MARK: - Gesture Actions
   
   @objc
   private func imageViewTapDetected() {
@@ -93,5 +137,19 @@ final class ContactDetailViewController: UIViewController {
     }
     let imageViewer = ImageViewerController(configuration: configuration)
     present(imageViewer, animated: true)
+  }
+  
+  @objc
+  private func numberLabelTapDetected() {
+    if let phoneURL = phoneURL {
+      UIApplication.shared.open(phoneURL)
+    }
+  }
+  
+  @objc
+  private func mailLabelTapDetected() {
+    if let mailURL = mailURL {
+      UIApplication.shared.open(mailURL)
+    }
   }
 }
