@@ -5,11 +5,13 @@
 //  Created by Igor Buzykin on 11.10.2022.
 //
 
-import UIKit
 import Kingfisher
+import UIKit
 
 final class ContactViewCell: UITableViewCell {
-  
+  // MARK: - Private properties
+
+  // UI
   private let contactImageView: UIImageView = {
     let imageView = UIImageView()
     imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -23,6 +25,8 @@ final class ContactViewCell: UITableViewCell {
     label.numberOfLines = 2
     return label
   }()
+  
+  // MARK: - Class lifecycle methods
 
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -44,6 +48,8 @@ final class ContactViewCell: UITableViewCell {
     contactImageView.image = nil
   }
   
+  // MARK: - Flow internal metnods
+  
   func configure(with contact: Contact) {
     contactLabel.text = contact.fullname
     contactImageView.contentMode = .scaleAspectFit
@@ -52,6 +58,8 @@ final class ContactViewCell: UITableViewCell {
     )
   }
   
+  // MARK: - Flow private methods
+  
   private func configureUI() {
     accessoryType = .disclosureIndicator
     
@@ -59,7 +67,7 @@ final class ContactViewCell: UITableViewCell {
     contentView.addSubview(contactLabel)
     
     NSLayoutConstraint.activate([
-      contactImageView.widthAnchor.constraint(equalTo: contactImageView.heightAnchor, multiplier: 1.0/1.0),
+      contactImageView.widthAnchor.constraint(equalTo: contactImageView.heightAnchor, multiplier: 1.0 / 1.0),
       contactImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
       contactImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
       contactImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
