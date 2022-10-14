@@ -13,7 +13,7 @@ class NetworkManager {
   
   var isOnline: Bool { _isOnline }
   
-  private let urlAPI = "https://randomuser.me/api/?results=100"
+  private let urlAPI = "https://randomuser.me/api/"
   
   private let monitor = NWPathMonitor()
   private let monitorQueue = DispatchQueue(label: "com.lexemz.GreenData-iOS-Case.networkMonitor")
