@@ -28,7 +28,7 @@
 		F9E4D45128F599C700FCAB85 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4D45028F599C700FCAB85 /* ContactDetailViewController.swift */; };
 		F9E4D45328F59A6800FCAB85 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4D45228F59A6800FCAB85 /* UIViewController+Extensions.swift */; };
 		F9E4D45528F59E7200FCAB85 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4D45428F59E7200FCAB85 /* NetworkManager.swift */; };
-		F9E4D45728F59FD400FCAB85 /* ContactJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4D45628F59FD400FCAB85 /* ContactJSON.swift */; };
+		F9E4D45728F59FD400FCAB85 /* RandomUserJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4D45628F59FD400FCAB85 /* RandomUserJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +57,7 @@
 		F9E4D45028F599C700FCAB85 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
 		F9E4D45228F59A6800FCAB85 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		F9E4D45428F59E7200FCAB85 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		F9E4D45628F59FD400FCAB85 /* ContactJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactJSON.swift; sourceTree = "<group>"; };
+		F9E4D45628F59FD400FCAB85 /* RandomUserJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,7 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				F93AC45828F8468900685700 /* Contact.swift */,
-				F9E4D45628F59FD400FCAB85 /* ContactJSON.swift */,
+				F9E4D45628F59FD400FCAB85 /* RandomUserJSON.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -356,7 +356,7 @@
 				F9E4D43228F5876F00FCAB85 /* SceneDelegate.swift in Sources */,
 				F9D090EB28F6090000051BEE /* UITableViewCell+Extensions.swift in Sources */,
 				F93AC44628F8271600685700 /* ContactsManagerDelegate.swift in Sources */,
-				F9E4D45728F59FD400FCAB85 /* ContactJSON.swift in Sources */,
+				F9E4D45728F59FD400FCAB85 /* RandomUserJSON.swift in Sources */,
 				F9E4D45328F59A6800FCAB85 /* UIViewController+Extensions.swift in Sources */,
 				F9E4D45528F59E7200FCAB85 /* NetworkManager.swift in Sources */,
 				F9E4D44E28F590A100FCAB85 /* CoreDataManager.swift in Sources */,
