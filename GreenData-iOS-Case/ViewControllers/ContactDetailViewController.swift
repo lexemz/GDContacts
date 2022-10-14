@@ -133,7 +133,7 @@ final class ContactDetailViewController: UIViewController {
   @objc
   private func imageViewTapDetected() {
     let configuration = ImageViewerConfiguration { config in
-      config.imageView = contactImageView
+      config.image = contactImageView.image
     }
     let imageViewer = ImageViewerController(configuration: configuration)
     present(imageViewer, animated: true)
