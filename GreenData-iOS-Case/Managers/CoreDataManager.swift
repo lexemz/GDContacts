@@ -12,6 +12,7 @@ final class CoreDataManager {
 
   private let persistentContainer: NSPersistentContainer
   private let context: NSManagedObjectContext
+  private var savedContactIndex = 0
 
   // MARK: - Core Data stack
 
@@ -32,7 +33,7 @@ final class CoreDataManager {
   func fetchData() -> [ContactCoreData] {
     let fetchRequest = ContactCoreData.fetchRequest()
     do {
-      return try context.fetch(fetchRequest)
+      return try context.fetch(fetchRequest).sorted { $0.index < $1.index }
     } catch {
       Log.e("Failed to fetch data", error)
     }
@@ -58,6 +59,9 @@ final class CoreDataManager {
       createdContact.localTimeOffset = contact.localTimeOffset
       createdContact.picURL = contact.picURL
       createdContact.phoneNumber = contact.phoneNumber
+      createdContact.index = Int64(savedContactIndex)
+      
+      savedContactIndex += 1
     }
     saveContext()
   }
