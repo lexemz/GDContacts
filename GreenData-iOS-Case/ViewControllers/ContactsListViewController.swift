@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ContactsListViewController: UIViewController {
+final class ContactsListViewController: UIViewController {
   @IBOutlet var tableView: UITableView!
   @IBOutlet var mainActivityIndicator: UIActivityIndicatorView!
 
@@ -18,6 +18,7 @@ class ContactsListViewController: UIViewController {
 
   // Flow Properties
   private var contacts: [Contact] = []
+  private var networkErrorDidShow = false
 
   // MARK: - VC lifecycle methods
 
@@ -59,6 +60,37 @@ class ContactsListViewController: UIViewController {
   private func hideActivityIndicator() {
     mainActivityIndicator.stopAnimating()
   }
+
+  private func createActivityIndicationOnTableFooter() {
+    let activity = UIActivityIndicatorView()
+    activity.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 40)
+    activity.startAnimating()
+    activity.hidesWhenStopped = true
+    tableView.tableFooterView = activity
+  }
+
+  private func removeActivityIndicatorOnTableFooter() {
+    tableView.tableFooterView = nil
+  }
+
+  private func createOfflineInfoButton() {
+    let barButton = UIBarButtonItem(
+      image: UIImage(systemName: "icloud.slash"),
+      style: .plain,
+      target: self,
+      action: #selector(offlineInfoButtonTap)
+    )
+    barButton.tintColor = .systemRed
+    navigationItem.rightBarButtonItem = barButton
+  }
+
+  @objc
+  private func offlineInfoButtonTap() {
+    showInfoAlert(
+      title: "Оффлайн режим",
+      message: "Похоже, ваше устройство не может выйти в сеть.\nВосстановлена последняя сессия."
+    )
+  }
 }
 
 // MARK: - TableViewDataSource
@@ -79,12 +111,7 @@ extension ContactsListViewController: UITableViewDataSource {
       withIdentifier: ContactViewCell.reuseIdentifier,
       for: indexPath
     ) as! ContactViewCell
-
     cell.configure(with: contacts[indexPath.row])
-
-    if indexPath.row == contacts.count - 1 {
-      contactsManager.fetchContacts()
-    }
     return cell
   }
 }
@@ -100,13 +127,14 @@ extension ContactsListViewController: UITableViewDelegate {
     openContantViewController(with: contacts[indexPath.row])
   }
 
-  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+  func tableView(
+    _ tableView: UITableView,
+    willDisplay cell: UITableViewCell,
+    forRowAt indexPath: IndexPath
+  ) {
     let lastRowIndex = tableView.numberOfRows(inSection: 0) - 1
     if indexPath.row == lastRowIndex {
-      let activity = UIActivityIndicatorView()
-      activity.frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 40)
-      activity.startAnimating()
-      tableView.tableFooterView = activity
+      contactsManager.fetchContacts()
     }
   }
 }
@@ -118,19 +146,31 @@ extension ContactsListViewController: ContactsManagerDelegate {
     _ contactsManager: ContactsManager,
     didReceive contacts: [Contact]
   ) {
-    Log.d(contacts)
     DispatchQueue.main.async {
       self.contacts += contacts
       self.tableView.reloadData()
       self.hideActivityIndicator()
+      self.createActivityIndicationOnTableFooter()
+      self.networkErrorDidShow = false
     }
   }
-  
+
   func contactsManager(
     _ contactsManager: ContactsManager,
     didReceive event: ContactManagerEvents
   ) {
-    // TODO: Show Alert
-    tableView.tableFooterView?.isHidden = true
+    DispatchQueue.main.async {
+      switch event {
+      case .networkError(let error):
+        if !self.networkErrorDidShow {
+          self.showInfoAlert(title: "Ошибка сети", message: error.localizedDescription)
+          self.networkErrorDidShow = true
+        }
+        self.removeActivityIndicatorOnTableFooter()
+      case .offlineModeEnabled:
+        self.createOfflineInfoButton()
+        self.removeActivityIndicatorOnTableFooter()
+      }
+    }
   }
 }
