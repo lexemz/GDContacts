@@ -41,6 +41,7 @@ final class ContactViewCell: UITableViewCell {
     super.layoutSubviews()
     contactImageView.layer.cornerRadius = contactImageView.frame.height / 2
     contactImageView.layer.masksToBounds = true
+    separatorInset = UIEdgeInsets(top: 0, left: contactLabel.frame.origin.x, bottom: 0, right: 0)
   }
   
   override func prepareForReuse() {
