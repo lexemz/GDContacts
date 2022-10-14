@@ -515,7 +515,7 @@
 				DEVELOPMENT_TEAM = K5L7239SK4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GreenData-iOS-Case/Application/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "GreenData Friends";
+				INFOPLIST_KEY_CFBundleDisplayName = GDContacts;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -550,7 +550,7 @@
 				DEVELOPMENT_TEAM = K5L7239SK4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GreenData-iOS-Case/Application/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "GreenData Friends";
+				INFOPLIST_KEY_CFBundleDisplayName = GDContacts;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
