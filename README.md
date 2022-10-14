@@ -24,8 +24,8 @@
 
 ## Внешние зависимости
 В проект установлены pods:
-- [Kingfisher](https://github.com/onevcat/Kingfisher)
-- [SimpleImageViewer](https://github.com/LcTwisk/SimpleImageViewer)
+- [Kingfisher](https://github.com/onevcat/Kingfisher) - Кеширование изображений
+- [SimpleImageViewer](https://github.com/LcTwisk/SimpleImageViewer) - Предпросмотр изображений
 
 ### Установка pods
 Команду `pod install` выполнять не нужно, так как поды проиндексированы в репозитории.
