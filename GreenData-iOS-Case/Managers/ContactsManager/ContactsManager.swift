@@ -21,7 +21,7 @@ final class ContactsManager {
       RandomUserJSON.self,
       with: [
         "page": "\(requestPage)",
-        "results": "10",
+        "results": "15",
         "seed": "lexemz.seed"
       ]
     ) { [weak self] result in
