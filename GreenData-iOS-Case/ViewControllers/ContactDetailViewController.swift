@@ -70,7 +70,10 @@ final class ContactDetailViewController: UIViewController {
   }
   
   private func configureImageView() {
-    contactImageView.kf.setImage(with: URL(string: contact.picURL))
+    contactImageView.kf.setImage(
+      with: URL(string: contact.picURL),
+      placeholder: UIImage(named: contact.gender == .female ? "person-dress-solid" : "person-solid")
+    )
     contactImageView.layer.cornerRadius = 10
     contactImageView.layer.masksToBounds = true
   }
