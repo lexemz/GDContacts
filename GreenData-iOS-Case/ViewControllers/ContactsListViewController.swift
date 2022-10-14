@@ -8,6 +8,7 @@
 import UIKit
 
 final class ContactsListViewController: UIViewController {
+  
   // MARK: - IBOutlets
   @IBOutlet var tableView: UITableView!
   @IBOutlet var mainActivityIndicator: UIActivityIndicatorView!
