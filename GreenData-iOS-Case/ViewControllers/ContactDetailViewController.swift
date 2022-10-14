@@ -67,7 +67,7 @@ final class ContactDetailViewController: UIViewController {
       [weak self] contactTime, deviceTime in
       guard let self = self else { return }
       self.contactTimeLabel.text = "Местное: \(contactTime)"
-      self.deviceTimeLabel.text = "Наше: \(deviceTime)"
+      self.deviceTimeLabel.text = "Ваше: \(deviceTime)"
     }
   }
   

@@ -147,7 +147,7 @@
                                                     <constraint firstAttribute="width" constant="20" id="mEh-2y-Iqh"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Наше : 8:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jU6-7B-0Bi">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ваше : 8:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jU6-7B-0Bi">
                                                 <rect key="frame" x="28" y="0.0" width="169" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -202,8 +202,8 @@
                     <connections>
                         <outlet property="birthdateLabel" destination="LDE-md-qdo" id="6te-N4-ve1"/>
                         <outlet property="contactImageView" destination="3g9-bT-WU4" id="ZhH-HU-5d3"/>
-                        <outlet property="contactTimeLabel" destination="jU6-7B-0Bi" id="7vE-fU-D84"/>
-                        <outlet property="deviceTimeLabel" destination="r0T-EZ-nnO" id="krt-hv-TwD"/>
+                        <outlet property="contactTimeLabel" destination="r0T-EZ-nnO" id="lel-iD-0z3"/>
+                        <outlet property="deviceTimeLabel" destination="jU6-7B-0Bi" id="bcu-EW-56K"/>
                         <outlet property="genderImageView" destination="PaL-eq-sDd" id="kj7-Ib-lY0"/>
                         <outlet property="genderLabel" destination="Y5C-Pj-KgQ" id="2QG-7C-J1r"/>
                         <outlet property="mailLabel" destination="hG3-zq-dmg" id="xzO-0l-co7"/>
