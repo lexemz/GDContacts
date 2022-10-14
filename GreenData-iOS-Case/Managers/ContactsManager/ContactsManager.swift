@@ -46,17 +46,21 @@ final class ContactsManager {
     }
     coreDataManager.createNewObjects(contacts)
 
+    Log.d("\(requestPage) page data received")
     delegate?.contactsManager(self, didReceive: contacts)
     requestPage += 1
   }
 
   private func handleNetworkFailure(with error: NetworkManagerError) {
+    Log.e("Network error: ", error, error.localizedDescription)
     delegate?.contactsManager(self, didReceive: .networkError(error))
   }
 
   private func loadContactsFromBackup() {
     if !backupDataDidShow {
       let contacts = coreDataManager.fetchData().map { Contact(contactCoreData: $0) }
+      Log.d("Data loaded from backup")
+      Log.w("Application in offline mode")
       delegate?.contactsManager(self, didReceive: contacts)
       delegate?.contactsManager(self, didReceive: .offlineModeEnabled)
       backupDataDidShow = true

@@ -102,7 +102,6 @@ final class ContactDetailViewController: UIViewController {
   private func validateMail() {
     guard let mailULR = URL(string: "mailto:\(contact.mail)") else { return }
     if UIApplication.shared.canOpenURL(mailULR) {
-      Log.d("Phone calling available")
       mailLabel.textColor = .systemBlue
       mailURL = mailULR
     }
