@@ -70,9 +70,9 @@ struct Contact {
 }
 
 enum ContactGender: String {
-  case male = "Мужчина"
-  case female = "Женщина"
-  case unknown = "Неизвестно"
+  case male
+  case female
+  case unknown
   
   var imageName: String {
     switch self {
@@ -82,6 +82,17 @@ enum ContactGender: String {
       return "venus-solid"
     case .unknown:
       return "venus-mars-solid"
+    }
+  }
+  
+  var presentTitle: String {
+    switch self {
+    case .male:
+      return "Мужчина"
+    case .female:
+      return "Женщина"
+    case .unknown:
+      return "Неизвестно"
     }
   }
 }
