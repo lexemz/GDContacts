@@ -8,7 +8,7 @@
 import Foundation
 
 final class ContactsManager {
-  var delegate: ContactsManagerDelegate?
+  weak var delegate: ContactsManagerDelegate?
 
   private let networkManager = NetworkManager.shared
   private let coreDataManager = CoreDataManager.shared
