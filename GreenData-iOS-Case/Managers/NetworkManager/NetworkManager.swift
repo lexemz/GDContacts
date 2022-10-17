@@ -11,13 +11,12 @@ import Network
 final class NetworkManager {
   static let shared = NetworkManager()
   
-  var isOnline: Bool { _isOnline }
+  private(set) var isOnline = false
   
   private let urlAPI = "https://randomuser.me/api/"
   
   private let monitor = NWPathMonitor()
   private let monitorQueue = DispatchQueue(label: "com.lexemz.GreenData-iOS-Case.networkMonitor")
-  private var _isOnline = false
   
   private init() {
     startNetworkConnectionMonitor()
@@ -63,7 +62,7 @@ final class NetworkManager {
   
   private func startNetworkConnectionMonitor() {
     monitor.pathUpdateHandler = { [weak self] path in
-      self?._isOnline = path.status == .satisfied ? true : false
+      self?.isOnline = path.status == .satisfied ? true : false
     }
     monitor.start(queue: monitorQueue)
   }
