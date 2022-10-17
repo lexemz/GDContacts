@@ -33,7 +33,7 @@ final class ContactsListViewController: UIViewController {
 
   // MARK: - Flow private methods
 
-  private func openContantViewController(with contact: Contact) {
+  private func openContactViewController(with contact: Contact) {
     let contactVC = ContactDetailViewController.instanceFromStoryboard()
     contactVC.contact = contact
     navigationController?.pushViewController(contactVC, animated: true)
@@ -126,7 +126,7 @@ extension ContactsListViewController: UITableViewDelegate {
     didSelectRowAt indexPath: IndexPath
   ) {
     tableView.deselectRow(at: indexPath, animated: true)
-    openContantViewController(with: contacts[indexPath.row])
+    openContactViewController(with: contacts[indexPath.row])
   }
 
   func tableView(
@@ -165,7 +165,10 @@ extension ContactsListViewController: ContactsManagerDelegate {
       switch event {
       case .networkError(let error):
         if !self.networkErrorDidShow {
-          self.showInfoAlert(title: "Ошибка сети", message: error.localizedDescription)
+          self.showInfoAlert(
+            title: "Ошибка сети",
+            message: error.localizedDescription
+          )
           self.networkErrorDidShow = true
         }
         self.removeActivityIndicatorOnTableFooter()
